@@ -160,7 +160,7 @@ int main(){
 	List_BenhNhan list;
 	list.import(n,m);
 	list.display();
-	cout << "[-]Nhap ngay sinh X: ";
+	cout << "[-]Nhap ngay sinh X(dd/mm/yyyy): ";
 	string x;getline(cin,x);
 	list.soLuongHoSo(x);
 	return 0;
