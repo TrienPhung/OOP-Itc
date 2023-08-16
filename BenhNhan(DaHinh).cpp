@@ -72,13 +72,26 @@ class BenhNhanNoiTru : public BenhNhan{
 			cout << "\t\t[+]So giuong: " << this->soGiuong << endl;
 		}
 		bool check(string x){
-			vector<int> token = chuyenDoi(getNs());
+						vector<int> token = chuyenDoi(getNs());
 			vector<int> X = chuyenDoi(x);
-			if(token[2] > X[2]) return true;
-			else if (token[1] > X[1]) return true;
-			else if (token[0] > X[0]) return true;
-			return false;
-		} 
+			if(token[2] == X[2]){
+				if(token[1] == X[1]){
+					if(token[0] <= X[0]){
+						return false;
+					}else{
+						return true;
+					}
+				}else if (token[1] > X[1]){
+					 return true;
+				}else{
+					return false;
+				}
+			}else if(token[2] > X[2]){
+				return true;
+			}else{
+				return false;	
+			}
+		}  
 };
 class BenhNhanNgoaiTru : public BenhNhan{
 	private:
@@ -102,17 +115,30 @@ class BenhNhanNgoaiTru : public BenhNhan{
 		bool check(string x){
 			vector<int> token = chuyenDoi(getNs());
 			vector<int> X = chuyenDoi(x);
-			if(token[2] > X[2]) return true;
-			else if (token[1] > X[1]) return true;
-			else if (token[0] > X[0]) return true;
-			return false;
+			if(token[2] == X[2]){
+				if(token[1] == X[1]){
+					if(token[0] <= X[0]){
+						return false;
+					}else{
+						return true;
+					}
+				}else if (token[1] > X[1]){
+					 return true;
+				}else{
+					return false;
+				}
+			}else if(token[2] > X[2]){
+				return true;
+			}else{
+				return false;	
+			}
 		} 
 };
 class List_BenhNhan{
 	private:
 		vector<BenhNhan*> list;
 	public:
-		List_BenhNhan(){}
+		
 		void import(int n, int m){
 			cout << "\t\t\tNHAP DANH SACH BENH NHAN NOI TRU\n";
 			for(int i = 0; i < n;i++){
@@ -140,7 +166,7 @@ class List_BenhNhan{
 		void soLuongHoSo(string x){
 			int countNoiTru = 0, countNgoaiTru = 0;
 			for(BenhNhan* bn : list){
-				if(bn->check(x)){
+				if(bn->check(x) == true){
 					if(dynamic_cast<BenhNhanNoiTru*>(bn) != nullptr){
 						countNoiTru++;
 					}else if(dynamic_cast<BenhNhanNgoaiTru*>(bn) != nullptr){
@@ -148,8 +174,8 @@ class List_BenhNhan{
 					}
 				}
 			}
-			cout << "\n[-]So luong benh nhan noi tru co ngay sinh lon hon: " << x  << " la: " << countNoiTru << endl;
-			cout << "[-]So luong benh nhan ngoai tru co ngay sinh lon hon: " << x  << " la: " << countNgoaiTru << endl;
+			cout << "\n[-]So luong benh nhan noi tru co ngay sinh lon hon " << x  << " la: " << countNoiTru << endl;
+			cout << "[-]So luong benh nhan ngoai tru co ngay sinh lon hon " << x  << " la: " << countNgoaiTru << endl;
 		}
 };
 int main(){
