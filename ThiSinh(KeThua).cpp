@@ -27,10 +27,10 @@ class ThiSinh : public Nguoi{
 		string id;
 		float toan,ly,hoa;
 	public:
-		ThiSinh():Nguoi(){
-			id = "";
-			toan = ly = hoa = 0.0;
-		}
+//		ThiSinh():Nguoi(){
+//			id = "";
+//			toan = ly = hoa = 0.0;
+//		}
 		void import(){
 			Nguoi::import();
 			cout <<"[-]Nhap so bao danh: ";
